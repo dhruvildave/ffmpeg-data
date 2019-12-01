@@ -23,5 +23,8 @@ echo $DISPLAY
 
 > Screen recording
 ```bash
-ffmpeg -y -f pulse -i default -f x11grab -s $(xdpyinfo | grep -i dim | awk '{print $2}') -i $DISPLAY out.mkv
+ffmpeg -y -f pulse -i default \
+       -f x11grab -i $DISPLAY \
+       -s $(xdpyinfo | grep -i dim | awk '{print $2}') \
+       out.mkv
 ```
