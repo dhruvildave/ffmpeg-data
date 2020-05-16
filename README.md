@@ -28,3 +28,8 @@ ffmpeg -y -f pulse -i default \
        -s $(xdpyinfo | grep -i dim | awk '{print $2}') \
        out.mkv
 ```
+
+> mp4 to mkv
+```bash
+ffmpeg -hwaccel cuvid -c:v h264_cuvid -i input.mkv -c:v h264_nvenc output.mp4
+```
